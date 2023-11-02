@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Maintain-Student-Engagement-Signature/static/css/main.411df9d0.css",
+    "main.js": "/Maintain-Student-Engagement-Signature/static/js/main.3fe09368.js",
+    "static/js/787.5ae7198d.chunk.js": "/Maintain-Student-Engagement-Signature/static/js/787.5ae7198d.chunk.js",
+    "static/media/logo.svg": "/Maintain-Student-Engagement-Signature/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Maintain-Student-Engagement-Signature/index.html",
+    "main.411df9d0.css.map": "/Maintain-Student-Engagement-Signature/static/css/main.411df9d0.css.map",
+    "main.3fe09368.js.map": "/Maintain-Student-Engagement-Signature/static/js/main.3fe09368.js.map",
+    "787.5ae7198d.chunk.js.map": "/Maintain-Student-Engagement-Signature/static/js/787.5ae7198d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.411df9d0.css",
+    "static/js/main.3fe09368.js"
+  ]
+}
