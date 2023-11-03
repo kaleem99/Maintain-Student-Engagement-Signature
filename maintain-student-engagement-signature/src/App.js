@@ -3,6 +3,7 @@ import "./App.css";
 import { db } from "./config/database";
 import { onValue, ref, set } from "firebase/database";
 import { useEffect, useState } from "react";
+import { BsArrowRightCircleFill } from "react-icons/bs";
 function App() {
   useEffect(() => {
     fetchData();
@@ -62,11 +63,27 @@ function App() {
     const newResultArr = [...data];
     newResultArr.push({ "": "" });
     setData(newResultArr);
+    setTimeout(() => {
+      let allInputElements = document.querySelectorAll(".inputElement");
+      let element = allInputElements[allInputElements.length - 1];
+      element.scrollIntoView();
+    }, 500);
+    // console.log(element, "Element");
+  };
+  const openWindowTab = (index, programLink, idElem) => {
+    window.open(programLink);
+    let allElements = document.querySelectorAll(`#${idElem}`);
+    allElements.forEach((elem, i) => {
+      if (i === index) {
+        elem.style.color = "blue";
+      } else {
+        elem.style.color = "black";
+      }
+    });
   };
   return (
     <div className="App">
-      <div className="Content">
-        <div>
+       <div className="ButtonDivs">
           <button onClick={() => AddNewRow()} className="SaveButton">
             Add New Row
           </button>
@@ -75,7 +92,9 @@ function App() {
           </button>
           <br></br>
         </div>
-        <br></br>
+      <div className="Content">
+       
+        {/* <br></br> */}
         <table>
           <tr>
             <th>Program Number</th>
@@ -84,37 +103,40 @@ function App() {
           </tr>
           {data.map((item, i) => {
             const arrOfItems = Object.entries(item);
+            const programName = arrOfItems[0][0];
+            const programLink = arrOfItems[0][1];
             return (
               <tr>
                 <td>{i + 1}</td>
                 <td
-                // onInput={(e) =>
-                //   updateStateData(e.target.innerHTML, "Program", i)
-                // }
-                // contentEditable="true"
                 >
                   <input
                     // disabled={"true"}
                     onChange={(e) =>
                       updateStateData(e.target.value, "Program", i)
                     }
-                    value={arrOfItems[0][0]}
+                    value={programName}
                     className="inputElement"
                     placeholder="Program Name"
                   />
                 </td>
                 <td
-                // onInput={(e) =>
-                //   updateStateData(e.target.innerHTML, "Link", i)
-                // }
-                // contentEditable="true"
                 >
                   <input
                     onChange={(e) => updateStateData(e.target.value, "Link", i)}
                     className="inputElement"
-                    value={arrOfItems[0][1]}
+                    value={programLink}
                     placeholder="Unsubscribe Link"
+                    id="UnsubscribeLink"
                   />
+                  <div
+                    onClick={(e) =>
+                      openWindowTab(i, programLink, "UnsubscribeLink")
+                    }
+                    className="testUrlLink"
+                  >
+                    <BsArrowRightCircleFill />
+                  </div>
                 </td>
               </tr>
             );
